@@ -35,22 +35,16 @@
                 }
             }
 
-            Console.WriteLine("Length:" + line3.Count);
-
             var elem = line3.First();
 
             if (elem >= 'a' && elem <= 'z')
             {
                 sum += elem - 'a' + 1;
-                Console.WriteLine(elem - 'a' + 1);
             }
             else
             {
                 sum += (elem - 'A' + 1) + ('z' - 'a' + 1);
-                Console.WriteLine((elem - 'A' + 1) + ('z' - 'a' + 1));
             }
-
-            Console.WriteLine();
         }
 
         Console.WriteLine(sum);
@@ -67,7 +61,6 @@
         {
             var line = s.ReadLine();
             var hs = new HashSet<char>();
-            var dups = new HashSet<char>();
 
             for (int i = 0; i < line.Length; i++)
             {
@@ -77,27 +70,21 @@
                 }
                 else
                 {
-                    if (hs.Contains(line[i]) && !dups.Contains(line[i]))
+                    if (hs.Contains(line[i]))
                     {
-                        dups.Add(line[i]);
-
-                        Console.WriteLine(line[i]);
-
                         if (line[i] >= 'a' && line[i] <= 'z')
                         {
                             sum += line[i] - 'a' + 1;
-                            Console.WriteLine(line[i] - 'a' + 1);
                         }
                         else
                         {
                             sum += (line[i] - 'A' + 1) + ('z' - 'a' + 1);
-                            Console.WriteLine((line[i] - 'A' + 1) + ('z' - 'a' + 1));
                         }
+
+                        break;
                     }
                 }
             }
-
-            Console.WriteLine();
         }
 
         Console.WriteLine(sum);
